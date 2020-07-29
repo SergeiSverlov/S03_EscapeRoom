@@ -1,0 +1,9 @@
+Build/
+DerivedDataCache/
+Binaries/
+Content/StarterContent/
+Intermediate/
+Saved/
+*.db
+*.db-wal
+*.db-shm
