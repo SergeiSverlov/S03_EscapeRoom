@@ -28,7 +28,7 @@ public:
 	virtual void TickComponent(float DeltaTime, ELevelTick TickType, FActorComponentTickFunction* ThisTickFunction) override;
 private:
 	UPROPERTY(VisibleAnywhere)
-	float OpenAngle = 60.f;
+	float OpenAngle = 180.f;
 
 	UPROPERTY(EditAnywhere)
 	ATriggerVolume* PressurePlate;
