@@ -39,5 +39,5 @@ private:
 	void FindPhysicsHandleComponent(); // find attached physics handle
 	FHitResult GetFirstPhysicsBodyInReach() const; // return LineTraceHit of the first physics body in Reach
 	FVector GetReachLineEnd() const; // get the end of reach line
-	FVector GetReachLineStart() const; // get the start of reach line
+	FVector GetReachLineStart() const;	// get the start of reach line
 };
