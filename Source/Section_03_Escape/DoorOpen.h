@@ -33,8 +33,8 @@ public:
 	FOnOpenRequest OnOpenRequest;
 
 private:
-	UPROPERTY(VisibleAnywhere)
-	float OpenAngle = -10.f;
+	// UPROPERTY(VisibleAnywhere)
+	// float OpenAngle = -10.f;
 
 	UPROPERTY(EditAnywhere)
 	ATriggerVolume* PressurePlate = nullptr;
