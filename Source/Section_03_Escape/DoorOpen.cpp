@@ -10,8 +10,6 @@ UDoorOpen::UDoorOpen()
 	// Set this component to be initialized when the game starts, and to be ticked every frame.  You can turn these features
 	// off to improve performance if you don't need them.
 	PrimaryComponentTick.bCanEverTick = true;
-
-	// ...
 }
 
 
@@ -28,35 +26,20 @@ void UDoorOpen::BeginPlay()
 	}
 }
 
-void UDoorOpen::OpenDoor()
-{
-	// Owner->SetActorRotation(FRotator(0.f, OpenAngle, 0.f));
-	OnOpenRequest.Broadcast();
-}
-
-
 // Called every frame
 void UDoorOpen::TickComponent(float DeltaTime, ELevelTick TickType, FActorComponentTickFunction* ThisTickFunction)
 {
 	Super::TickComponent(DeltaTime, TickType, ThisTickFunction);
 
 	// Poll the Trigger Volume every frame
-	if (GetTotalMassOfActorsOnPlate() > 30.f) // TODO make into a parametre
+	if (GetTotalMassOfActorsOnPlate() > TriggerMass)
 	{
-		OpenDoor();
-		LastDoorOpenTime = GetWorld()->GetTimeSeconds();
+		OnOpen.Broadcast();
 	}
-
-	// Check if it is time to close the door
-	if (GetWorld()->GetTimeSeconds()- LastDoorOpenTime > DoorCloseDelay)
+	else
 	{
-		CloseDoor();
+		OnClose.Broadcast();
 	}
-}
-
-void UDoorOpen::CloseDoor ()
-{
-	Owner->SetActorRotation(FRotator(0.f, 90.f, 0.f));
 }
 
 float UDoorOpen::GetTotalMassOfActorsOnPlate()
